@@ -109,31 +109,24 @@
 
     <script>
       const taskList = document.getElementById("taskList");
-      const taskInput = document.getElementById("taskInput");
-
-   
-      taskInput.addEventListener("keypress", function(event) {
-        if (event.key === "Enter") {
-          addTask();
-        }
-      });
 
       function addTask() {
-        const task = taskInput.value.trim();
+        const input = document.getElementById("taskInput");
+        const task = input.value.trim();
 
         if (task) {
           const li = document.createElement("li");
 
           li.className =
-            "list-group-item d-flex justify-content-between align-items-center mb-2 rounded-pill shadow-sm";
+            "list-group-item d-flex justify-content-between align-items-center mb-2 rounded shadow-sm border";
 
           li.innerHTML = `
-                    <span>🌸 ${task}</span>
-                    <button class="delete-btn" onclick="this.parentElement.remove()">X</button>
+                    <span>${task}</span>
+                    <button class="btn btn-outline-danger btn-sm" onclick="this.parentElement.remove()">X</button>
                 `;
 
           taskList.appendChild(li);
-          taskInput.value = "";
+          input.value = "";
         }
       }
 
@@ -150,3 +143,4 @@
     </script>
   </body>
 </html>
+
